@@ -1,11 +1,13 @@
 package com.hibernate.mappings.service;
 
 import java.util.List;
+import java.util.Set;
+
+import com.hibernate.mappings.entity.Customer;
+import com.hibernate.mappings.entity.Items;
+import com.hibernate.mappings.entity.OrdersTable;
 
 import org.springframework.stereotype.Service;
-
-import com.hibernate.mappings.dto.Customer;
-import com.hibernate.mappings.dto.OrdersTable;
 
 @Service
 public interface MapingsService {
@@ -18,6 +20,12 @@ public interface MapingsService {
 
 	void deleteCustomer(Long customerId);
 
-	List<OrdersTable> createOrder(List<OrdersTable> orders, Long customerId);
+	Set<OrdersTable> createOrder(Set<OrdersTable> orders, Long customerId);
+
+	Items createItem(Items item);
+
+	List<Items> retriveItemsByCategory(String category);
+
+	
 
 }

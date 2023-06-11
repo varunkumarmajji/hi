@@ -2,11 +2,14 @@ package com.hibernate.mappings.entity;
 // Generated Jun 9, 2023, 12:23:06 PM by Hibernate Tools 4.3.6.Final
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -32,7 +35,11 @@ public class Address implements java.io.Serializable {
 
 	@Column(name = "zip_code")
 	private String zipCode;
-	
+
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "customer_id")
+	private Customer customer;
 
 	public Address() {
 	}
@@ -41,18 +48,21 @@ public class Address implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public Address(long id, String street, String city, String state, String country, String zipCode) {
+	
+	
+	
+	public Address(long id, String street, String city, String state, String country, String zipCode,
+			Customer customer) {
+		super();
 		this.id = id;
 		this.street = street;
 		this.city = city;
 		this.state = state;
 		this.country = country;
 		this.zipCode = zipCode;
-	
+		this.customer = customer;
 	}
 
-	
-	
 	public long getId() {
 		return this.id;
 	}
@@ -104,6 +114,12 @@ public class Address implements java.io.Serializable {
 		this.zipCode = zipCode;
 	}
 
+	public Customer getCustomer() {
+		return customer;
+	}
 
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 
 }

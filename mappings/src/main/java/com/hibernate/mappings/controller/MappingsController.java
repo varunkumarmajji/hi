@@ -3,6 +3,7 @@ package com.hibernate.mappings.controller;
 import java.util.List;
 import java.util.Set;
 
+import com.hibernate.mappings.entity.Address;
 import com.hibernate.mappings.entity.Customer;
 import com.hibernate.mappings.entity.Items;
 import com.hibernate.mappings.entity.OrdersTable;
@@ -102,5 +103,16 @@ public class MappingsController {
 		return msg;
 
 	}
+	@GetMapping("/getaddress/{id}")
+	public Address getAddress(@PathVariable Long id) {
+	
+		return service.retriveAddress(id);
 
+	}
+	@GetMapping("/getitem/{itemId}")
+	public Items getItem(@PathVariable Long itemId) {
+	
+		return service.retriveItems(itemId);
+
+	}
 }

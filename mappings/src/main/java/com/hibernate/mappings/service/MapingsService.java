@@ -3,11 +3,12 @@ package com.hibernate.mappings.service;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
+import com.hibernate.mappings.entity.Address;
 import com.hibernate.mappings.entity.Customer;
 import com.hibernate.mappings.entity.Items;
 import com.hibernate.mappings.entity.OrdersTable;
-
-import org.springframework.stereotype.Service;
 
 @Service
 public interface MapingsService {
@@ -26,6 +27,8 @@ public interface MapingsService {
 
 	List<Items> retriveItemsByCategory(String category);
 
-	
+	Address retriveAddress(Long id);
+
+	Items retriveItems(Long itemId);
 
 }

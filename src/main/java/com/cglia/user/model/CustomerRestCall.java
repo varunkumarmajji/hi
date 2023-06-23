@@ -9,7 +9,7 @@ public class CustomerRestCall {
 	private String createdBy;
 	private String modifiedBy;
 	private String modifiedTime;
-	
+	private String jkhjkvhfuidhvu;
 	public CustomerRestCall(Integer customerId, String customername, String customerEmail, Integer status,
 			String createdBy, String modifiedBy, String modifiedTime) {
 		this.customerId = customerId;
